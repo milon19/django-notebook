@@ -71,3 +71,53 @@ Go to `setting.py` in project folder & add your `app name` to `INSTALLED_APPS` v
     'app_name',
   ]
 ```
+
+
+# Add Templates, Static and Media File
+
+### 1. Add Templates File
+
+> Make a directory/Folder in project root named `templates`.
+> goto `settings.py` find `TEMPLATES` variable and add the following code
+
+```python
+TEMPLATES = [
+    {
+    	.
+	.
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        .
+    },
+]
+```
+
+### 2. Add static File
+
+> Make a directory/Folder in project root named `static`.
+> goto `settings.py` add the following code at the end
+
+```python
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+   os.path.join(BASE_DIR, 'static'),
+)
+```
+
+### 3. Add media file
+
+> Make a directory/Folder in project root named `media`.
+> goto `settings.py` add the following code at the end
+
+```python
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+> goto `urls.py` add the following code
+
+```python
+urlpatterns = [
+   .
+   .
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+```
