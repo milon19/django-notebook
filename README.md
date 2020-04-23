@@ -115,6 +115,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 > goto `urls.py` add the following code
 
 ```python
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
    .
    .
